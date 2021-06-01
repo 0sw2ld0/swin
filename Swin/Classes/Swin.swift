@@ -9,18 +9,26 @@ import Foundation
 
 public class Swin {
     private var modules: [Module]
-    public static var shared = Swin()
+    private static var shared = Swin()
 
-    init() {
+    private init() {
         modules = []
     }
     
-    public func modules(_ args: Module...) {
-        modules = args
+    private func modules(_ modules: [Module]) {
+        self.modules = modules
     }
     
-    public func startSwin() {
+    private func start() {
         modules.forEach { $0.run() }
+    }
+    
+    public static func modules(_ args: Module...) {
+        shared.modules(args)
+    }
+    
+    public static func start() {
+        shared.start()
     }
 }
 
