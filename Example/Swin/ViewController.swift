@@ -10,7 +10,8 @@ import UIKit
 import Swin
 class ViewController: UIViewController {
     
-    @Inject var cat: Cat
+    @Inject(named: "MyCat") var cat: Cat
+    @Inject var mammal: Mammal
     var dog: Dog!
 
     //MARK: - IBOutlet
@@ -32,7 +33,11 @@ class ViewController: UIViewController {
     //MARK: - private functions
     
     private func setup() {
-       dog = DependencyContainer.resolve()
+        print("mammal say")
+        mammal.say()
+        print("mammal = \(mammal)")
+        
+        dog = DependencyContainer.resolve()
     }
     
     private func setupView() {

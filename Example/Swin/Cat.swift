@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Cat {
+class Cat: Mammal {
     let name: String
     var age : Int
     
@@ -16,4 +16,9 @@ class Cat {
         self.name = name
         self.age = age
     }
+    
+    func say() {
+        print("Miau Miau")
+    }
+    
 }

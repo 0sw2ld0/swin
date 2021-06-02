@@ -14,18 +14,22 @@ public class DependencyContainerProxy {
         self.container = container
     }
     
-    public func single<T> (definition: @escaping Definition<T>) {
+    public func single<T> (_ qualifier:Qualifier? = nil, definition: @escaping Definition<T>) {
         
-        container.registerSingle(definition)
+        container.registerSingle(qualifier,definition)
     }
     
-    public func factory<T> (definition: @escaping Definition<T>) {
+    public func factory<T> (_ qualifier:Qualifier? = nil, definition: @escaping Definition<T>) {
         
-        container.registerFactory(definition)
+        container.registerFactory(qualifier, definition)
     }
     
-    public func get<T>() -> T {
-        return container.resolve()
+    public func get<T>(_ qualifier:Qualifier? = nil) -> T {
+        return container.resolve(qualifier)
+    }
+    
+    public func named(_ name: String) -> Qualifier {
+        return StringQualifier(value: name)
     }
 
 }

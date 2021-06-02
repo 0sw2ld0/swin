@@ -10,8 +10,12 @@ import Foundation
 @propertyWrapper
 public struct Inject<T> {
     public var wrappedValue: T
-    
-    public init() {
-        self.wrappedValue = DependencyContainer.resolve()
+
+    public init(named: String? = nil) {
+        var qualifier: Qualifier? = nil
+        if let named = named {
+            qualifier = StringQualifier(value: named)
+        }
+        self.wrappedValue = DependencyContainer.resolve(qualifier)
     }
 }

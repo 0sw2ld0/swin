@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct Dog {
+struct Dog: Mammal {
+    func say() {
+        print("Guau Guau")
+    }
+    
     let name: String
     let age : Int
 }

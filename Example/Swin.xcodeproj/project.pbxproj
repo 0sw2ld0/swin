@@ -19,6 +19,7 @@
 		88B36D582665F1430081F4DF /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B36D572665F1430081F4DF /* Dog.swift */; };
 		88B36D5C2665F14E0081F4DF /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B36D5B2665F14E0081F4DF /* Cat.swift */; };
 		88B36D602665F1590081F4DF /* PetOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B36D5F2665F1590081F4DF /* PetOwner.swift */; };
+		88B36DB0266704140081F4DF /* Mammal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B36DAF266704140081F4DF /* Mammal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		88B36D572665F1430081F4DF /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		88B36D5B2665F14E0081F4DF /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		88B36D5F2665F1590081F4DF /* PetOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetOwner.swift; sourceTree = "<group>"; };
+		88B36DAF266704140081F4DF /* Mammal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mammal.swift; sourceTree = "<group>"; };
 		C3C7FACD3A43D190A722D48D /* Pods-Swin_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swin_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Swin_Tests/Pods-Swin_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D735299C4A5CA6F2F46953BF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				88B36D572665F1430081F4DF /* Dog.swift */,
 				88B36D5B2665F14E0081F4DF /* Cat.swift */,
 				88B36D5F2665F1590081F4DF /* PetOwner.swift */,
+				88B36DAF266704140081F4DF /* Mammal.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				88B36D512665F06D0081F4DF /* RegisterDependecy.swift in Sources */,
 				88B36D5C2665F14E0081F4DF /* Cat.swift in Sources */,
+				88B36DB0266704140081F4DF /* Mammal.swift in Sources */,
 				88B36D602665F1590081F4DF /* PetOwner.swift in Sources */,
 				88B36D582665F1430081F4DF /* Dog.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
