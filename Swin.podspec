@@ -10,9 +10,10 @@ Pod::Spec.new do |s|
   s.name             = 'Swin'
   s.version          = '0.1.0'
   s.summary          = 'Litle Service locator in swift.'
+  s.swift_version = '5.0'
 
   s.description      = <<-DESC
-TODO: Is a Litle Service Locator in swift.
+Is a Litle Service Locator in swift.
                        DESC
 
   s.homepage         = 'https://github.com/0sw2ld0/swin'

@@ -27,9 +27,4 @@ public class DependencyContainerProxy {
     public func get<T>(_ qualifier:Qualifier? = nil) -> T {
         return container.resolve(qualifier)
     }
-    
-    public func named(_ name: String) -> Qualifier {
-        return StringQualifier(value: name)
-    }
-
 }

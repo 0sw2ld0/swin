@@ -18,3 +18,7 @@ public struct Module {
 public func module(using closure: @escaping (DependencyContainerProxy) -> Void) -> Module {
     return Module(closure: closure)
 }
+
+public func named(_ name: String) -> Qualifier {
+    return StringQualifier(value: name)
+}
