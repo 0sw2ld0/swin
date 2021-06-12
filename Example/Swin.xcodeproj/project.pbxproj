@@ -34,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		209785DCEE67807483666293 /* Pods_Swin_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swin_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DC3E947361C6729B40FB7E8 /* Swin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swin.podspec; path = ../Swin.podspec; sourceTree = "<group>"; };
+		2DC3E947361C6729B40FB7E8 /* Swin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Swin.podspec; path = ../Swin.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		48C9AB23AF66A363617DB201 /* Pods-Swin_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swin_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Swin_Tests/Pods-Swin_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5957E586F66ACE56B05A53A9 /* Pods-Swin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swin_Tests.release.xcconfig"; path = "Target Support Files/Pods-Swin_Tests/Pods-Swin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Swin_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swin_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };

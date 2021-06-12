@@ -5,8 +5,6 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-import Foundation
-
 public class Swin {
     private var modules: [Module]
     private static var shared = Swin()
@@ -23,12 +21,20 @@ public class Swin {
         modules.forEach { $0.run() }
     }
     
+    private func stop() {
+        DependencyContainer.clear()
+    }
+    
     public static func modules(_ args: Module...) {
         shared.modules(args)
     }
     
     public static func start() {
         shared.start()
+    }
+    
+    static func stop() {
+        shared.stop()
     }
 }
 

@@ -25,4 +25,7 @@ Is a Litle Service Locator in swift.
 
   s.source_files = 'Swin/Classes/**/*'
   
+  s.test_spec 'Tests' do |test_spec|
+      test_spec.source_files = 'Swin/Tests/**/*'
+    end
 end

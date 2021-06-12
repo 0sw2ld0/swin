@@ -5,8 +5,6 @@
 //  Created by Oswaldo Leon on 5/29/21.
 //
 
-import Foundation
-
 class BaseInstanceFactory<T>: InstanceFactory{
     var definition: Definition<T>
     let key: String = String(describing: T.self)
@@ -22,7 +20,4 @@ class BaseInstanceFactory<T>: InstanceFactory{
         return definition()
     }
     
-    func isCreated() -> Bool {
-        return false
-    }
 }

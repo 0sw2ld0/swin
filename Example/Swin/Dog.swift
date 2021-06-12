@@ -6,8 +6,6 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
-import Foundation
-
 struct Dog: Mammal {
     func say() {
         print("Guau Guau")
