@@ -5,8 +5,6 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-import Foundation
-
 public final class DependencyContainer {
     static var shared = DependencyContainer()
 
@@ -15,34 +13,45 @@ public final class DependencyContainer {
     public static func resolve<T>(_ qualifier:Qualifier? = nil) -> T {
         shared.resolve(qualifier)
     }
+    
+    static func clear() {
+        shared.clear()
+    }
+    
+    func keysFromDependencies() -> [String]{
+        return dependencies.keys.map { $0 }
+    }
             
-    func registerSingle<T>(_ qualifier:Qualifier?, _ dependency: @escaping Definition<T>) {
+    func registerSingle<T>(_ qualifier:Qualifier? = nil, _ dependency: @escaping Definition<T>) {
         let key = keyName(String(describing: T.self), qualifier)
-
-        print("key = \(key)")
         let instanceFactory = SingleInstanceFactory(definition: dependency) as BaseInstanceFactory<Any>
         dependencies[key] = instanceFactory
     }
     
-    func registerFactory<T>(_ qualifier:Qualifier?, _ dependency: @escaping Definition<T>) {
+    func registerFactory<T>(_ qualifier:Qualifier? = nil, _ dependency: @escaping Definition<T>) {
         let key = keyName(String(describing: T.self), qualifier)
-
-        print("key = \(key)")
         let instanceFactory = FactoryInstanceFactory(definition: dependency) as BaseInstanceFactory<Any>
         dependencies[key] = instanceFactory
     }
 
-    func resolve<T>(_ qualifier:Qualifier?) -> T {
+    func resolve<T>(_ qualifier:Qualifier? = nil) -> T {        
+        return searchValue(qualifier)!
+    }
         
+    func searchValue<T>(_ qualifier:Qualifier? = nil) -> T? {
         let key = keyName(String(describing: T.self), qualifier)
-        
         let dependency = dependencies[key]
         
         precondition(dependency != nil, "No dependency found for \(key) must register a dependency before resolve or inject.")
-        return dependency!.get() as! T
+        
+        return dependency?.get() as? T
     }
     
-    private func keyName(_ key: String, _ qualifier:Qualifier?) -> String{
+    func clear() {
+        dependencies.removeAll()
+    }
+    
+    internal func keyName(_ key: String, _ qualifier:Qualifier? = nil) -> String{
         var name = key
         if name.hasPrefix("Optional<") && name.hasSuffix(">") {
             name = String(name.suffix(name.count - "Optional<".count))

@@ -5,8 +5,6 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-import Foundation
-
 public class DependencyContainerProxy {
     private let container: DependencyContainer
 
@@ -26,5 +24,9 @@ public class DependencyContainerProxy {
     
     public func get<T>(_ qualifier:Qualifier? = nil) -> T {
         return container.resolve(qualifier)
+    }
+    
+    internal func clear () {
+        return container.clear()
     }
 }

@@ -5,8 +5,6 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-import Foundation
-
 public struct Module {
     let closure: (DependencyContainerProxy) -> Void
     

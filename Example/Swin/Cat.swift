@@ -6,8 +6,6 @@
 //  Copyright © 2021 CocoaPods. All rights reserved.
 //
 
-import Foundation
-
 class Cat: Mammal {
     let name: String
     var age : Int
