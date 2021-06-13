@@ -29,6 +29,10 @@ struct PetOwner {
     @Inject var dog: Animal
 }
 
+struct PetTeam {
+    @Inject var petOwner: PetOwner
+}
+
 struct Watchman {
     @Inject(named: "Watchman") var dog: Animal
 }

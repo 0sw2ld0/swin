@@ -5,11 +5,21 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-public struct Module {
+public struct Module: Equatable {
+    let unique: String
     let closure: (DependencyContainerProxy) -> Void
+    
+    init(closure: @escaping (DependencyContainerProxy) -> Void) {
+        unique = UUID().uuidString
+        self.closure = closure
+    }
     
     func run() {
         closure(DependencyContainerProxy(container: DependencyContainer.shared))
+    }
+    
+    public static func == (lhs: Module, rhs: Module) -> Bool {
+        lhs.unique == rhs.unique
     }
 }
 

@@ -6,8 +6,8 @@
 //
 
 public class Swin {
-    private var modules: [Module]
-    private static var shared = Swin()
+    var modules: [Module]
+    static var shared = Swin()
 
     private init() {
         modules = []
@@ -25,15 +25,27 @@ public class Swin {
         DependencyContainer.clear()
     }
     
+    private func remove(module: Module) {
+        let index = modules.firstIndex { $0 == module}
+        guard let indexModule = index else {
+            return
+        }
+        modules.remove(at: indexModule)
+    }
+    
     public static func modules(_ args: Module...) {
         shared.modules(args)
+    }
+    
+    public static func remove(module: Module) {
+        shared.remove(module: module)
     }
     
     public static func start() {
         shared.start()
     }
     
-    static func stop() {
+    public static func stop() {
         shared.stop()
     }
 }
