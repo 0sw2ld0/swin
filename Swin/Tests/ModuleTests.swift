@@ -40,4 +40,19 @@ class ModuleTests: XCTestCase {
         
         XCTAssertEqual(dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
     }
+    
+    func testRegisterModule_CreatedPetOwner_CreatedDog_Single_VerifySay() throws {
+    
+        let testModule = module { container in
+            container.factory { Dog(name: "Fido") as Animal}
+            container.factory { PetOwner()}
+            container.factory { PetTeam()}
+        }
+        
+        testModule.run()
+      
+        let petTeam: PetTeam = DependencyContainer.resolve()
+        
+        XCTAssertEqual(petTeam.petOwner.dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
+    }
 }
