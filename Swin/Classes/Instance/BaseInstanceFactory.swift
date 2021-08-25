@@ -5,18 +5,23 @@
 //  Created by Oswaldo Leon on 5/29/21.
 //
 
-class BaseInstanceFactory<T>: InstanceFactory{
-    var definition: Definition<T>
+class BaseInstanceFactory<T>: InstanceFactory {
+    
+    let moduleId: String
+    var beanDefinition: BeanDefinition<T>
+    
     let key: String = String(describing: T.self)
     
-    init(definition: @escaping Definition<T>) {
-        self.definition = definition
-    }
-    func get() -> T {
-        return create()
+    init(moduleId: String, definition: @escaping Definition<T>) {
+        self.moduleId = moduleId
+        beanDefinition = BeanDefinition(definition: definition)
     }
     
-    func create() -> T {
+    func get<W>() -> W? {
+        return create(beanDefinition.definition) as? W
+    }
+    
+    func create<W>(_ definition: Definition<W>) -> W {
         return definition()
     }
     

@@ -6,6 +6,7 @@
 //
 
 public class Swin {
+    
     var modules: [Module]
     static var shared = Swin()
 
@@ -17,12 +18,16 @@ public class Swin {
         self.modules = modules
     }
     
+    private func add(module: Module) {
+        modules.append(module)
+    }
+    
     private func start() {
         modules.forEach { $0.run() }
     }
     
     private func stop() {
-        DependencyContainer.clear()
+        DependencyContainer.clean()
     }
     
     private func remove(module: Module) {
@@ -37,6 +42,10 @@ public class Swin {
         shared.modules(args)
     }
     
+    public static func add(module: Module) {
+        shared.add(module: module)
+    }
+    
     public static func remove(module: Module) {
         shared.remove(module: module)
     }
@@ -49,5 +58,3 @@ public class Swin {
         shared.stop()
     }
 }
-
-

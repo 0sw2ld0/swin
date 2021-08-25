@@ -16,14 +16,16 @@ PODS:
     - iOSSnapshotTestCase (~> 6.0)
     - Nimble (~> 8.0)
   - Quick (2.2.1)
-  - Swin (0.1.0)
-  - Swin/Tests (0.1.0)
+  - SwiftLint (0.43.1)
+  - Swin (0.2.0)
+  - Swin/Tests (0.2.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
   - Nimble (~> 8.0.7)
   - Nimble-Snapshots (~> 8.0.0)
   - Quick (~> 2.2.0)
+  - SwiftLint
   - Swin (from `../`)
   - Swin/Tests (from `../`)
 
@@ -34,6 +36,7 @@ SPEC REPOS:
     - Nimble
     - Nimble-Snapshots
     - Quick
+    - SwiftLint
 
 EXTERNAL SOURCES:
   Swin:
@@ -45,8 +48,9 @@ SPEC CHECKSUMS:
   Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
-  Swin: 6d5967a6f969470c759a8aa821a025c3a8970670
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  Swin: e1abd75a10338ed4c356b26132e905dbbe566947
 
-PODFILE CHECKSUM: b1ee0d5cb2121286ba8533100dc7856a31b5a2e1
+PODFILE CHECKSUM: 3038bce09498371a6bc7b7d211de0ce8f36bab1c
 
 COCOAPODS: 1.10.0

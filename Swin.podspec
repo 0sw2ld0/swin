@@ -1,14 +1,6 @@
-#
-# Be sure to run `pod lib lint Swin.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'Swin'
-  s.version          = '0.2.0'
+  s.version          = '1.0.0'
   s.summary          = 'Litle Service locator in swift.'
   s.swift_version = '5.0'
 

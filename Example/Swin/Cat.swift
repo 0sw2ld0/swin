@@ -8,7 +8,7 @@
 
 class Cat: Mammal {
     let name: String
-    var age : Int
+    var age: Int
     
     init(name: String, age: Int) {
         self.name = name
