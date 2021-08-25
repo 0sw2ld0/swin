@@ -6,6 +6,7 @@
 //
 
 class SingleInstanceFactory<T>: BaseInstanceFactory<T> {
+    
     var value: T?
     
     override func get<W>() -> W? {

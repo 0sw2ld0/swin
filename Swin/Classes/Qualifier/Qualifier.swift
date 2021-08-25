@@ -6,6 +6,7 @@
 //
 
 public protocol Qualifier {
+    
     var value: QualifierValue { get set }
 }
 

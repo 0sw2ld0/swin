@@ -6,6 +6,7 @@
 //
 
 class ScopedInstanceFactory: BaseInstanceFactory<Any> {
+    
     var values: [String: Any] = [:]
     
     private func isCreated(name: String) -> Bool {

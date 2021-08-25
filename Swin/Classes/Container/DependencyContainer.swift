@@ -6,6 +6,7 @@
 //
 
 public final class DependencyContainer {
+    
     static var shared = DependencyContainer()
 
     private var dependencies = [String: BaseInstanceFactory<Any>]()

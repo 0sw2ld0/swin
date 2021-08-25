@@ -6,6 +6,7 @@
 //
 
 public class Swin {
+    
     var modules: [Module]
     static var shared = Swin()
 
