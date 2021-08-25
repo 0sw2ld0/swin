@@ -12,5 +12,5 @@ struct Dog: Mammal {
     }
     
     let name: String
-    let age : Int
+    let age: Int
 }

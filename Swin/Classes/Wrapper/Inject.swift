@@ -12,10 +12,11 @@ public struct Inject<T> {
     public var wrappedValue: T
 
     public init(named: String? = nil) {
-        var qualifier: Qualifier? = nil
+        var qualifier: Qualifier?
         if let named = named {
             qualifier = StringQualifier(value: named)
         }
+        
         self.wrappedValue = DependencyContainer.resolve(qualifier)
     }
 }

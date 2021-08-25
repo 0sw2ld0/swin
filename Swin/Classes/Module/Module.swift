@@ -6,20 +6,24 @@
 //
 
 public struct Module: Equatable {
-    let unique: String
+    let moduleId: String
     let closure: (DependencyContainerProxy) -> Void
     
     init(closure: @escaping (DependencyContainerProxy) -> Void) {
-        unique = UUID().uuidString
+        moduleId = UUID().uuidString
         self.closure = closure
     }
     
     func run() {
-        closure(DependencyContainerProxy(container: DependencyContainer.shared))
+        closure(DependencyContainerProxy(moduleId: moduleId, container: DependencyContainer.shared))
+    }
+    
+    func remove() {
+        DependencyContainer.shared.removeModule(moduleId)
     }
     
     public static func == (lhs: Module, rhs: Module) -> Bool {
-        lhs.unique == rhs.unique
+        lhs.moduleId == rhs.moduleId
     }
 }
 

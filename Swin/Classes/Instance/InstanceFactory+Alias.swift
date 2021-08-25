@@ -8,3 +8,10 @@
 public typealias Definition<T> = () -> T
 typealias FactoryInstanceFactory<T> = BaseInstanceFactory<T>
 
+struct BeanDefinition<T> {
+    let definition: Definition<T>
+    
+    init(definition: @escaping Definition<T>) {
+        self.definition = definition
+    }
+}
