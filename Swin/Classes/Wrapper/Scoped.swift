@@ -9,6 +9,7 @@ import Foundation
 
 @propertyWrapper
 public struct Scoped<T: AnyObject> {
+    
     public var wrappedValue: T
 
     public init(_ scopeName: String) {

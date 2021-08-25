@@ -6,6 +6,7 @@
 //
 
 public class RetainedScope {
+    
     private let qualifier: Qualifier
     
     init(name: String) {

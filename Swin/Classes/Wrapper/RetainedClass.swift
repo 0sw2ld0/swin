@@ -9,6 +9,7 @@ import Foundation
 
 @propertyWrapper
 public struct RetainedClass<Value: RetainedScope> {
+    
     public var wrappedValue: RetainedScope
 
     public init(_ scope: String) {

@@ -6,6 +6,7 @@
 //
 
 public class DependencyContainerProxy {
+    
     private let container: DependencyContainer
     private let moduleId: String
     
@@ -15,12 +16,10 @@ public class DependencyContainerProxy {
     }
     
     public func single<T> (_ qualifier: Qualifier? = nil, definition: @escaping Definition<T>) {
-        
         container.registerSingle(moduleId: moduleId, qualifier, definition)
     }
     
     public func factory<T> (_ qualifier: Qualifier? = nil, definition: @escaping Definition<T>) {
-        
         container.registerFactory(moduleId: moduleId, qualifier, definition)
     }
     

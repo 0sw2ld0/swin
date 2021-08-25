@@ -9,6 +9,7 @@ import Foundation
 
 @propertyWrapper
 public struct Inject<T> {
+    
     public var wrappedValue: T
 
     public init(named: String? = nil) {
