@@ -5,23 +5,22 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-class SingleInstanceFactory<T>: BaseInstanceFactory<T>{
+class SingleInstanceFactory<T>: BaseInstanceFactory<T> {
     var value: T?
     
-    override func get() -> T {
+    override func get<W>() -> W? {
         if !isCreated() {
-            value = create()
+            value = create(beanDefinition.definition)
         }
-        return getValue()
+        return getValue() as? W
     }
     
     private func isCreated() -> Bool {
         return value != nil
     }
     
-    private func getValue() -> T {
-        precondition(value != nil, "Single instance created couldn't return value")
-        return value!
+    private func getValue() -> T? {
+        return value
     }
 
 }

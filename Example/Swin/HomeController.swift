@@ -8,13 +8,14 @@
 
 import UIKit
 import Swin
-class ViewController: UIViewController {
-    
-    @Inject(named: "MyCat") var cat: Cat
+
+class HomeViewController: UIViewController {
+    @RetainedClass("vcScope") var scope: RetainedScope
+    @Scoped("vcScope") var cat: Cat
     @Inject var mammal: Mammal
     var dog: Dog!
-
-    //MARK: - IBOutlet
+    
+    // MARK: - IBOutlet
     
     @IBOutlet weak var nameDogLabel: UILabel!
     @IBOutlet weak var ageDogLabel: UILabel!
@@ -22,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameCatLabel: UILabel!
     @IBOutlet weak var ageCatLabel: UILabel!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,12 @@ class ViewController: UIViewController {
         setupView()
     }
     
-    //MARK: - private functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showCat()
+    }
+    
+    // MARK: - private functions
     
     private func setup() {
         print("mammal say")
@@ -55,16 +61,15 @@ class ViewController: UIViewController {
         ageCatLabel.text = "age: \(cat.age)"
     }
 
-    //MARK: - IBAction
+    // MARK: - IBAction
 
     @IBAction func onGenerateDog(_ sender: Any) {
         dog = DependencyContainer.resolve()
         showDog()
     }
     
-    @IBAction func onGenerateCat(_ sender: Any) {
-        cat = DependencyContainer.resolve()
+    @IBAction func onAddCar(_ sender: Any) {
+        cat.age += 1
         showCat()
     }
 }
-

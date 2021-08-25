@@ -9,7 +9,6 @@ import XCTest
 
 class InjectTests: XCTestCase {
     
-    
     override func setUp() {
         
     }

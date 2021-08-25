@@ -8,4 +8,3 @@
 struct StringQualifier: Qualifier {
     var value: QualifierValue
 }
-

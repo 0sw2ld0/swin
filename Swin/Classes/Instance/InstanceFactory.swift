@@ -6,7 +6,7 @@
 //
 
 protocol InstanceFactory: class {
-    associatedtype T
-    func get() -> T
-    func create() -> T
+    associatedtype T // swiftlint:disable:this type_name
+    func get<W>() -> W?
+    func create(_ definition: Definition<T>) -> T
 }

@@ -14,62 +14,69 @@ class DependencyContainerTests: XCTestCase {
     }
 
     override func tearDown() {
-        DependencyContainer.clear()
+        DependencyContainer.clean()
     }
     
     func testDependencyContainer_KeyName() throws {
-        XCTAssertEqual(DependencyContainer.shared.keyName("Dog"), "Dog", "Same name")
+        XCTAssertEqual(keyName("Dog"), "Dog", "Same name")
     }
     
     func testDependencyContainer_KeyName_Optional() throws {
-        XCTAssertEqual(DependencyContainer.shared.keyName("Optional<Dog>"), "Dog", "Same name")
+        XCTAssertEqual(keyName("Optional<Dog>"), "Dog", "Same name")
     }
     
     func testDependencyContainer_KeyName_WithNamed() throws {
-        XCTAssertEqual(DependencyContainer.shared.keyName("Dog", named("Pet")), "Dog::Pet", "Same name")
+        XCTAssertEqual(keyName("Dog", named("Pet")), "Dog::Pet", "Same name")
     }
     
     func testDependencyContainer_KeyName_Optional_WithNamed() throws {
-        XCTAssertEqual(DependencyContainer.shared.keyName("Optional<Dog>", named("Pet")), "Dog::Pet", "Same name")
+        XCTAssertEqual(keyName("Optional<Dog>", named("Pet")), "Dog::Pet", "Same name")
     }
     
     func testDependencyContainer_WhenNotCreatedDog_HasRequiredEmpty() throws {
-        XCTAssertFalse(DependencyContainer.shared.keysFromDependencies().contains("Dog"), "The keysFromDependencies() should have not returned Dog for the name class")
+        XCTAssertFalse(DependencyContainer.shared.keysFromDependencies()
+                        .contains("Dog"), "The keysFromDependencies() should have not returned Dog for the name class")
     }
     
     func testDependencyContainer_WhenCreatedDog_Factory_HasRequiredNotEmpty() throws {
         let dog = Dog(name: "Fido")
         DependencyContainer.shared.registerFactory { dog }
-        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies().contains("Dog"), "The keysFromDependencies() should have returned Dog for the name class")
+        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies()
+                        .contains("Dog"), "The keysFromDependencies() should have returned Dog for the name class")
     }
     
     func testDependencyContainer_WhenCreatedDog_Single_HasRequiredNotEmpty() throws {
         let dog = Dog(name: "Fido")
         DependencyContainer.shared.registerSingle { dog }
-        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies().contains("Dog"), "The keysFromDependencies() should have returned Dog for the name class")
+        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies()
+                        .contains("Dog"), "The keysFromDependencies() should have returned Dog for the name class")
     }
     
     func testDependencyContainer_WhenCreatedDog_Factory_WithNamed_HasRequiredNotEmpty() throws {
         let dog = Dog(name: "Fido")
         DependencyContainer.shared.registerFactory(named("Pet")) { dog }
-        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies().contains("Dog::Pet"), "The keysFromDependencies() should have returned Dog for the name class")
+        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies()
+                        .contains("Dog::Pet"), "The keysFromDependencies() should have returned Dog for the name class")
     }
     
     func testDependencyContainer_WhenCreatedDog_Single_WithNamed_HasRequiredNotEmpty() throws {
         let dog = Dog(name: "Fido")
         DependencyContainer.shared.registerSingle(named("Pet")) { dog }
-        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies().contains("Dog::Pet"), "The keysFromDependencies() should have returned Dog for the name class")
+        XCTAssertTrue(DependencyContainer.shared.keysFromDependencies()
+                        .contains("Dog::Pet"), "The keysFromDependencies() should have returned Dog for the name class")
     }
     
     func testDependencyContainer_WhenNotCreatedDog_PreconditionFail() {
         XCTAssertPrecondition(expectedMessage: "No dependency found for Dog must register a dependency before resolve or inject.") {
-            let _: Dog? = DependencyContainer.shared.searchValue()
+            let key = keyName(String(describing: Dog.self))
+            let _: Dog? = DependencyContainer.shared.searchValue(key)
         }
     }
     
     func testDependencyContainer_WhenNotCreatedDog_WithNamed_PreconditionFail() {
         XCTAssertPrecondition(expectedMessage: "No dependency found for Dog::Pet must register a dependency before resolve or inject.") {
-            let _: Dog? = DependencyContainer.shared.searchValue(named("Pet"))
+            let key = keyName(String(describing: Dog.self), named("Pet"))
+            let _: Dog? = DependencyContainer.shared.searchValue(key)
         }
     }
     

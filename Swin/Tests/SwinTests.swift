@@ -38,7 +38,7 @@ class SwinTests: XCTestCase {
             container.single(named("Watchman2")) { Dog(name: "Fido2") as Animal}
         }
         
-        XCTAssertNotEqual(testModule1.unique, testModule2.unique, "Different unique")
+        XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
         
         Swin.modules(testModule1, testModule2)
         Swin.start()
@@ -57,7 +57,7 @@ class SwinTests: XCTestCase {
             container.single(named("Watchman2")) { Dog(name: "Fido2") as Animal}
         }
         
-        XCTAssertNotEqual(testModule1.unique, testModule2.unique, "Different unique")
+        XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
         
         Swin.modules(testModule1)
         Swin.start()
@@ -68,6 +68,25 @@ class SwinTests: XCTestCase {
         
         Swin.remove(module: testModule1)
         XCTAssertEqual(Swin.shared.modules.count, 0, "Verify count of Modules after remove")
+
+    }
+    
+    func testSwin_RemovedModulesAdded_VerifyCount() throws {
+        let testModule1 = module { container in
+            container.single(named("Watchman1")) { Dog(name: "Fido1") as Animal}
+        }
+        let testModule2 = module { container in
+            container.single(named("Watchman2")) { Dog(name: "Fido2") as Animal}
+        }
+        
+        XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
+        Swin.add(module: testModule1)
+        Swin.add(module: testModule2)
+        Swin.start()
+        XCTAssertEqual(Swin.shared.modules.count, 2, "Verify count of Modules")
+
+        Swin.remove(module: testModule2)
+        XCTAssertEqual(Swin.shared.modules.count, 1, "Verify count of Modules after remove")
 
     }
 }
