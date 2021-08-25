@@ -17,8 +17,8 @@ PODS:
     - Nimble (~> 8.0)
   - Quick (2.2.1)
   - SwiftLint (0.43.1)
-  - Swin (0.2.0)
-  - Swin/Tests (0.2.0)
+  - Swin (1.0.1)
+  - Swin/Tests (1.0.1)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -49,7 +49,7 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
-  Swin: e1abd75a10338ed4c356b26132e905dbbe566947
+  Swin: 1d6439fea204901823de74687f3f43d733742e05
 
 PODFILE CHECKSUM: 3038bce09498371a6bc7b7d211de0ce8f36bab1c
 
