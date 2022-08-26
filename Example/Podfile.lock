@@ -1,41 +1,15 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - iOSSnapshotTestCase (6.2.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
-  - iOSSnapshotTestCase/Core (6.2.0)
-  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
-    - iOSSnapshotTestCase/Core
-  - Nimble (8.0.9)
-  - Nimble-Snapshots (8.0.0):
-    - Nimble-Snapshots/Core (= 8.0.0)
-  - Nimble-Snapshots/Core (8.0.0):
-    - iOSSnapshotTestCase (~> 6.0)
-    - Nimble (~> 8.0)
-  - Quick (2.2.1)
   - SwiftLint (0.43.1)
-  - Swin (1.0.1)
-  - Swin/Tests (1.0.1)
+  - Swin (1.1.0)
+  - Swin/Tests (1.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
-  - Nimble (~> 8.0.7)
-  - Nimble-Snapshots (~> 8.0.0)
-  - Quick (~> 2.2.0)
   - SwiftLint
   - Swin (from `../`)
   - Swin/Tests (from `../`)
 
 SPEC REPOS:
   trunk:
-    - FBSnapshotTestCase
-    - iOSSnapshotTestCase
-    - Nimble
-    - Nimble-Snapshots
-    - Quick
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -43,14 +17,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
-  Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
-  Nimble-Snapshots: 8ec63f41ce6c7229a17be9a64edbc123b181f75b
-  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
-  Swin: 1d6439fea204901823de74687f3f43d733742e05
+  Swin: 880c63e1a8f1559517ff1661acbdd1ead2fc2d1a
 
-PODFILE CHECKSUM: 3038bce09498371a6bc7b7d211de0ce8f36bab1c
+PODFILE CHECKSUM: b3059028f38bd9b62e15afcf1e0f93a03a2c1e67
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

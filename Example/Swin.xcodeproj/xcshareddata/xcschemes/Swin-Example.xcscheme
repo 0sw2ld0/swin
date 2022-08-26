@@ -62,6 +62,16 @@
                ReferencedContainer = "container:Swin.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D92034BD2CD77A78F61FE395A03448C5"
+               BuildableName = "Swin-Unit-Tests.xctest"
+               BlueprintName = "Swin-Unit-Tests"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
