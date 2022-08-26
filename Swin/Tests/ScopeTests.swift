@@ -14,7 +14,7 @@ class ScopeTests: XCTestCase {
     }
 
     override func tearDown() {
-        Swin.stop()
+        SwinManager.stop()
     }
     
     func testInjectDog_CreatedDog_Factory_VerifySay() throws {
@@ -23,8 +23,8 @@ class ScopeTests: XCTestCase {
                 scope.scoped { ShowDog(name: "Firulais", medal: 0, hairstyle: "") }
             }
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let scope: RetainedScope = RetainedScope(name: "TScope")
         XCTAssertNotNil(scope)
         do {
@@ -50,8 +50,8 @@ class ScopeTests: XCTestCase {
                 scope.scoped { ShowDog(name: "Firulais", medal: 0, hairstyle: "") }
             }
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         
         do {
             let scope: RetainedScope = RetainedScope(name: "TScope")
@@ -86,8 +86,8 @@ class ScopeTests: XCTestCase {
                 scope.scoped { ShowDog(name: "Firulais", medal: 0, hairstyle: "") }
             }
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let scope: RetainedScope = RetainedScope(name: "TScope")
         XCTAssertNotNil(scope)
         do {
@@ -120,8 +120,8 @@ class ScopeTests: XCTestCase {
                 scope.scoped { Tiger(name: "Tiger") }
             }
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         
         do {
             let zoo = Zoo(name: "Public Zoo")

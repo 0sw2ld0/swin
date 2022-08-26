@@ -14,15 +14,15 @@ class InjectTests: XCTestCase {
     }
 
     override func tearDown() {
-        Swin.stop()
+        SwinManager.stop()
     }
     
     func testInjectDog_CreatedDog_Factory_VerifySay() throws {
         let testModule = module { container in
             container.factory { Dog(name: "Fido") as Animal}
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let petOwner = PetOwner()
         XCTAssertEqual(petOwner.dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
     }
@@ -31,8 +31,8 @@ class InjectTests: XCTestCase {
         let testModule = module { container in
             container.single { Dog(name: "Fido") as Animal}
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let petOwner = PetOwner()
         XCTAssertEqual(petOwner.dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
     }
@@ -41,8 +41,8 @@ class InjectTests: XCTestCase {
         let testModule = module { container in
             container.factory(named("Watchman")) { Dog(name: "Fido") as Animal}
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let watchman = Watchman()
         XCTAssertEqual(watchman.dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
     }
@@ -51,8 +51,8 @@ class InjectTests: XCTestCase {
         let testModule = module { container in
             container.single(named("Watchman")) { Dog(name: "Fido") as Animal}
         }
-        Swin.modules(testModule)
-        Swin.start()
+        SwinManager.modules(testModule)
+        SwinManager.start()
         let watchman = Watchman()
         XCTAssertEqual(watchman.dog.say(), "Guau Guau", "The Say() should have returned Guau Guau")
     }

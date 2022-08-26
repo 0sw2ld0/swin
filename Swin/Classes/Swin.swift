@@ -5,10 +5,10 @@
 //  Created by Oswaldo Leon on 5/31/21.
 //
 
-public class Swin {
+public class SwinManager {
     
     var modules: [Module]
-    static var shared = Swin()
+    static var shared = SwinManager()
 
     private init() {
         modules = []

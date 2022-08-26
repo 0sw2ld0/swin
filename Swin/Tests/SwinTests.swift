@@ -14,19 +14,19 @@ class SwinTests: XCTestCase {
     }
 
     override func tearDown() {
-        Swin.stop()
+        SwinManager.stop()
     }
     
     func testSwin_RemovedModuleRegistered_VerifyCount() throws {
         let testModule = module { container in
             container.single(named("Watchman")) { Dog(name: "Fido") as Animal}
         }
-        Swin.modules(testModule)
-        Swin.start()
-        XCTAssertEqual(Swin.shared.modules.count, 1, "The Say() should have returned Guau Guau")
+        SwinManager.modules(testModule)
+        SwinManager.start()
+        XCTAssertEqual(SwinManager.shared.modules.count, 1, "The Say() should have returned Guau Guau")
 
-        Swin.remove(module: testModule)
-        XCTAssertEqual(Swin.shared.modules.count, 0, "The Say() should have returned Guau Guau")
+        SwinManager.remove(module: testModule)
+        XCTAssertEqual(SwinManager.shared.modules.count, 0, "The Say() should have returned Guau Guau")
 
     }
     
@@ -40,12 +40,12 @@ class SwinTests: XCTestCase {
         
         XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
         
-        Swin.modules(testModule1, testModule2)
-        Swin.start()
-        XCTAssertEqual(Swin.shared.modules.count, 2, "Verify count of Modules")
+        SwinManager.modules(testModule1, testModule2)
+        SwinManager.start()
+        XCTAssertEqual(SwinManager.shared.modules.count, 2, "Verify count of Modules")
 
-        Swin.remove(module: testModule2)
-        XCTAssertEqual(Swin.shared.modules.count, 1, "Verify count of Modules after remove")
+        SwinManager.remove(module: testModule2)
+        XCTAssertEqual(SwinManager.shared.modules.count, 1, "Verify count of Modules after remove")
 
     }
     
@@ -59,15 +59,15 @@ class SwinTests: XCTestCase {
         
         XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
         
-        Swin.modules(testModule1)
-        Swin.start()
-        XCTAssertEqual(Swin.shared.modules.count, 1, "Verify count of Modules")
+        SwinManager.modules(testModule1)
+        SwinManager.start()
+        XCTAssertEqual(SwinManager.shared.modules.count, 1, "Verify count of Modules")
 
-        Swin.remove(module: testModule2)
-        XCTAssertEqual(Swin.shared.modules.count, 1, "Verify count of Modules after remove")
+        SwinManager.remove(module: testModule2)
+        XCTAssertEqual(SwinManager.shared.modules.count, 1, "Verify count of Modules after remove")
         
-        Swin.remove(module: testModule1)
-        XCTAssertEqual(Swin.shared.modules.count, 0, "Verify count of Modules after remove")
+        SwinManager.remove(module: testModule1)
+        XCTAssertEqual(SwinManager.shared.modules.count, 0, "Verify count of Modules after remove")
 
     }
     
@@ -80,13 +80,13 @@ class SwinTests: XCTestCase {
         }
         
         XCTAssertNotEqual(testModule1.moduleId, testModule2.moduleId, "Different unique")
-        Swin.add(module: testModule1)
-        Swin.add(module: testModule2)
-        Swin.start()
-        XCTAssertEqual(Swin.shared.modules.count, 2, "Verify count of Modules")
+        SwinManager.add(module: testModule1)
+        SwinManager.add(module: testModule2)
+        SwinManager.start()
+        XCTAssertEqual(SwinManager.shared.modules.count, 2, "Verify count of Modules")
 
-        Swin.remove(module: testModule2)
-        XCTAssertEqual(Swin.shared.modules.count, 1, "Verify count of Modules after remove")
+        SwinManager.remove(module: testModule2)
+        XCTAssertEqual(SwinManager.shared.modules.count, 1, "Verify count of Modules after remove")
 
     }
 }
